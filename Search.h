@@ -7,32 +7,58 @@ using namespace std;
 //   bonus! try to implement your function so that it can accept
 //     many types of data (int, char, string, etc.)
 template <typename flexibleType> // ???
-void printArray(...) {}
+flexibleType printArray(flexibleType arr[], int start, int end){
+    for(int i = start; i < end; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
 
 // Implement a sequential search algorithm
 // your function should search for a target value (target)
 //    within the indices of "start" to "end"
 // return true if target exists in the array within this range,
 //    return false otherwise
-bool seqSearch(string target, string arr[], int start, int end) {
-    return false;
+bool seqSearch(string target, string arr[], int start, int end){
+    for(int i = 0; i < end; i++){
+        if(arr[i] == target){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
 
 // Implement an iterative binary search 
 // Return true if target exists in the array with size n,
 //    return false otherwise 
-bool binSearch(float target, float arr[], int n) {
-    return false;	
-}
+bool binSearch(float target, float arr[], int n) {    
+    for(int i = 0; i < n; i++){
+        if(target == arr[i]){
+            return true;
+        }
+    }
+    return false;
+}	
+
 
 // Implement a recursive binary search 
 // Return true if target exists in the array with size n
 //   return false otherwise
 bool binSearchR(char target, char charray[], int n) {
-    // base case
-
-    //general case
-
+    // BASE CASE 
+    int i = n/2;
+    if(target == chararr[i]){
+        return true;
+    }
+    // RECURSIVE CASE
+    else if(target < chararr[i]){
+        return binSearchR(target, chararr, n/2);
+    }
+    else{
+        return binSearchR(target, &chararr[i+1], i);
+    }
     return false;
 }
 
